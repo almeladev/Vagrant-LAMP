@@ -1,1 +1,2 @@
-Vagrant-LAMP-PHP7
+<h1>Vagrant LAMP PHP 7</h1>
+
