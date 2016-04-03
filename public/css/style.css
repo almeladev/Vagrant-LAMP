@@ -1,0 +1,200 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, helvetica;
+    font-size: 14px;
+}
+.logo {
+    font-size: 100px;
+    font-weight: bolder;
+    letter-spacing: -6px;
+    color: #222;
+    margin: 20px 30px;
+}
+.logo .number {
+    color: #222;
+    opacity: 0.1;
+}
+.navigation {
+    margin-left: 33px;
+}
+.navigation a {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 2px solid #222;
+    background: #222;
+    color: #fff;
+}
+.navigation a:hover {
+    color: #222;
+    background: transparent;
+}
+.container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 33px;
+}
+.container a {
+    color: #222;
+}
+.container table {
+    font-size: 11px;
+    margin-top: 20px;
+}
+.container table thead td {
+    background-color: #f5f5f5;
+    padding: 4px 10px;
+}
+.container table tbody td {
+    padding: 4px 10px;
+}
+.container .box {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: 30px;
+}
+.container input {
+    background-color: #f5f5f5;
+    border: 0;
+    padding: 5px 10px;
+}
+.container input[type="submit"] {
+    background-color: #ccc;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+.container input[type="submit"]:hover {
+    background-color: #222;
+    color: #fff;
+}
+.container button {
+    background-color: #ccc;
+    border: 0;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.container button:hover {
+    background-color: #222;
+    color: #fff;
+}
+
+/* MIGUEL */
+
+.listadocanciones{
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+.listadocanciones header{
+    font-weight: bold;
+}
+.container{
+    font-size: 1.3em;
+    padding: 15px;
+}
+.container h2, .container h3, label, .container input[type="submit"]{
+    font-family: garamond, times new roman;
+}
+form p{
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    line-height: 25px;
+}
+.container input, .container textarea, .container button{
+    font-size: .8em;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    padding: 10px;
+    width: 99%;
+}
+
+textarea{
+    width: 99%;
+    height: 150px;
+    border: none;
+    font-family: arial;
+    padding: 6px;
+}
+select{
+    font-size: 1em;
+}
+label{
+    display: block;
+}
+.errorf, .exitof{
+    background-color: #ffdddd;
+    padding: 15px;
+    color: #d66;
+    font-size: 110%;
+    border: 1px solid #f99;
+    margin-bottom: 15px;
+}
+.errorf ul, .exitof ul{
+    margin: 0;
+    padding: 0 0 0 15px;
+}
+.errorf li, .exitof li{
+    margin: 0;
+    padding: 4px;
+}
+.exitof{
+    background-color: #ddffdd;
+    color: #3c3;
+    border: 1px solid #9f9;
+}
+
+.pregunta{
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+.pregunta h3{
+    background-color: #eee;
+    margin: 0px 0px 5px;
+    padding: 5px;
+}
+.pregunta p{
+    padding: 5px;
+    margin: 0 0 5px;
+}
+.pregunta footer{
+    font-size: 80%;
+    padding-left: 5px;
+}
+.pregunta footer a{
+    text-decoration: none;
+    color: #06c;
+}
+.muestrarespuestas{
+    background-color: #f8f8f8;
+    padding: 15px;
+}
+.muestrarespuestas header{
+    font-size: 0.8em;
+    margin-bottom: 15px;
+}
+.muestrarespuestas article{
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+
+@media (max-width: 500px) {
+    .navigation a{
+     font-size: .8em;
+        padding: 10px 5px;
+    }
+    .logo{
+        font-size: 80px;
+    }
+    .container{
+        font-size: 1.1em;
+        margin: 8px;
+        padding: 5px;
+    }
+}
