@@ -1,4 +1,4 @@
-<h1>Vagrant LAMP PHP 7</h1>
+<h1>Vagrant LAMP</h1>
 
 <p>Mi entorno de desarrollo LAMP (Linux, Apache, MySQL, PHP) para Vagrant.</p> 
 
