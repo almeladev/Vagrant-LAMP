@@ -38,6 +38,7 @@
 <h2>Configuración y uso</h2>
 <ul>
   <li>IP: <code>192.168.33.10</code></li>
+  <li>Adminer: <code>IP/adminer</code></li>
   <li>Usuario MySQL: <code>root</code></li>
   <li>Contraseña MySQL: <code>123</code></li>
 </ul>
