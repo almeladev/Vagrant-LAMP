@@ -42,3 +42,4 @@
   <li>Usuario MySQL: <code>root</code></li>
   <li>Contraseña MySQL: <code>123</code></li>
 </ul>
+<p> La configuración es susceptible de cambio en los ficheros "vagrantfile" y "config.sh". Enjoy!</p>
