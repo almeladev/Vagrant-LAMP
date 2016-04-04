@@ -5,7 +5,7 @@
         "phpmailer/phpmailer": "~5.2",
         "league/plates": "3.*",
         "level-2/dice": "dev-master",
-        "vrana/adminer": "dev-master"
+        "foglcz/adminer-installer": "dev-master"
     },
     "autoload": {
         "psr-4": { "": ["application/core/",
