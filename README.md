@@ -42,4 +42,4 @@
   <li>Usuario MySQL: <code>root</code></li>
   <li>Contraseña MySQL: <code>123</code></li>
 </ul>
-<p> La configuración es susceptible de cambio en los ficheros "vagrantfile" y "config.sh". Enjoy!</p>
+<p> La configuración es susceptible de cambio en los ficheros "vagrantfile" y "config.sh". También aclarar que las carpetas que comienzan por "_" pueden ser borradas una vez haya sido instalada la aplicación. Enjoy!</p>
