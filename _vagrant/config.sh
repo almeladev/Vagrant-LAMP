@@ -19,7 +19,7 @@
 DATABASE_SQL='database.sql' # Base de datos.
 PASSWORD='123' # Contraseña de la base de datos.
 PROJECTFOLDER='proyecto' # Nombre del directorio del proyecto.
-GIT_REPOS='https://github.com/DanMnez/Vagrant-LAMP-PHP7' # Repositorios del proyecto en GitHub.
+GIT_REPOS='https://github.com/DanMnez/Vagrant-LAMP' # Repositorios del proyecto en GitHub.
 
 update() {
 	sudo apt-get update
