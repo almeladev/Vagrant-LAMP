@@ -40,9 +40,6 @@ debconf-set-selections <<< "mysql-community-server mysql-community-server/root-p
 debconf-set-selections <<< "mysql-community-server mysql-community-server/re-root-pass password $PASSWORD"
 sudo apt-get install mysql-server -y
 
-# Instalacion de administración de BBDD [Proximo]
-
-
 # Creación del directorio del proyecto
 sudo mkdir "/var/www/html/${PROJECTFOLDER}"
 
@@ -75,6 +72,10 @@ sudo apt-get install -y git
 # Descarga mis repositorios de git en el directorio del proyecto
 echo -e "\n\n===== Clonando repositorios Git: =====\n\n" 
 sudo git clone "${GIT_REPOS}" "/var/www/html/${PROJECTFOLDER}"
+
+# Descarga el administrador de MySQL Adminer en su ultima version
+sudo mkdir "/var/www/html/${PROJECTFOLDER}/public/adminer"
+sudo wget "http://www.adminer.org/latest.php" -O "/var/www/html/${PROJECTFOLDER}/public/adminer/index.php" 
 
 # Instalación de composer
 echo -e "\n\n===== Instalando Composer: =====\n\n" 
