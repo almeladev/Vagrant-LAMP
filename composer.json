@@ -4,8 +4,7 @@
         "raveren/kint": "^1.0",
         "phpmailer/phpmailer": "~5.2",
         "league/plates": "3.*",
-        "level-2/dice": "dev-master",
-        "foglcz/adminer-installer": "dev-master"
+        "level-2/dice": "dev-master"
     },
     "autoload": {
         "psr-4": { "": ["application/core/",
