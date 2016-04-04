@@ -5,7 +5,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>ERRORRRRRRRRRRR</h1>
+    <h1>ERROR!</h1>
     <?= $this->section('content') ?>
 </body>
 </html>

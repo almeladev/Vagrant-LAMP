@@ -5,4 +5,4 @@
     Estoy en la Home de esta app
 
 </div>
-<?php $this->insert('partials/banner',['dato' => 'Esto va al banner']) ?>
+<?php $this->insert('partials/banner', ['dato' => 'Dato del banner']) ?>

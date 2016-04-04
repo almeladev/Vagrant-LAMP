@@ -26,7 +26,7 @@ class Application
         //Reglas del constructor, directorio de plantillas y singleton
         $rule = ['constructParams' => ['directory' => APP . 'view'], 'shared' => true];
         $dice->addRule('League\Plates\Engine', $rule);
-        $rule = ['constructParams' => ['msg' => "ERROR,Ese controlador no existe"]];
+        $rule = ['constructParams' => ['msg' => "ERROR, Ese controlador no existe"]];
         $dice->addRule('Error', $rule);
 
         // check for controller: no controller given ? then load start-page
@@ -58,8 +58,8 @@ class Application
                 }
                 else {
                     header('HTTP/1.0 404 Not Found');
-                    require APP . 'controller/Error.php';
-                    $cont_error = $dice->create("Error");
+                    require APP . 'controller/Fallo.php';
+                    $cont_error = $dice->create("Fallo");
                     $cont_error->index();
                 }
             }
