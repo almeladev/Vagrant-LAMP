@@ -32,6 +32,7 @@
       <li>Phpmailer</li>
     </ul>
   </li>
+  <li>Última versión de Adminer</li>
 </ul>
 
 <h2>Configuración y uso</h2>
