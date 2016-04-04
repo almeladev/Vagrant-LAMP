@@ -7,10 +7,15 @@ VAGRANTFILE_API_VERSION = "2"
  
 # Configuracion de la maquina virtual.
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "ubuntu/trusty64"								# Caja (Por defecto: Ubuntu 14.04)
-  config.vm.network "forwarded_port", guest: 80, host: 8080		# Redireccionamiento de puertos
-  config.vm.network "private_network", ip: "192.168.33.10"		# IP privada
-  config.vm.synced_folder "./", "/var/www/html"					# Carpeta compartida
-  config.vm.provision "shell", path: "config.sh"				# Archivo para la instalacion y configuracion del entorno de desarrollo
+  # Caja (Por defecto: Ubuntu 14.04)
+  config.vm.box = "ubuntu/trusty64"
+  # Redireccionamiento de puertos
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+  # IP privada
+  config.vm.network "private_network", ip: "192.168.33.10"
+  # Carpeta compartida
+  config.vm.synced_folder "./", "/var/www/html"
+  # Archivo para la instalacion y configuracion del entorno de desarrollo
+  config.vm.provision "shell", path: "config.sh"
 
 end
