@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS entrada (
   id_entrada int(10) NOT NULL AUTO_INCREMENT,
   titulo varchar(250) COLLATE latin1_spanish_ci DEFAULT NULL, /* Por el momento es un varchar amplio */
   cuerpo text COLLATE latin1_spanish_ci NOT NULL,
-  PRIMARY KEY (id_pregunta)
+  PRIMARY KEY (id_entrada)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=7 ;
 
 --
