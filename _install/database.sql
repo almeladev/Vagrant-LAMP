@@ -1,15 +1,5 @@
--- phpMyAdmin SQL Dump
--- version 4.0.10deb1
--- http://www.phpmyadmin.net
---
--- Servidor: localhost
--- Tiempo de generación: 20-01-2016 a las 16:05:25
--- Versión del servidor: 5.5.46-0ubuntu0.14.04.2
--- Versión de PHP: 5.5.9-1ubuntu4.14
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -17,114 +7,93 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `mini`
+-- Base de datos (dbdebut): 
 --
+
 /* Se elimina la base de datos si la hubiese */
-DROP DATABASE IF EXISTS myMini;
+DROP DATABASE IF EXISTS dbdebut;
 /* Creacion de la base de datos */
-CREATE DATABASE myMini character set utf8 collate utf8_general_ci;
+CREATE DATABASE dbdebut character set utf8 collate utf8_general_ci;
 /* Uso de la base de datos */
-USE myMini;
+USE dbdebut;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pregunta`
---
-
-CREATE TABLE IF NOT EXISTS `pregunta` (
-  `id_pregunta` int(10) NOT NULL AUTO_INCREMENT,
-  `asunto` varchar(250) COLLATE latin1_spanish_ci DEFAULT NULL,
-  `cuerpo` text COLLATE latin1_spanish_ci NOT NULL,
-  PRIMARY KEY (`id_pregunta`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=7 ;
+/* ---------------------------------------------------------- */
 
 --
--- Volcado de datos para la tabla `pregunta`
+-- Estructura de tabla para la tabla 'pregunta'
 --
 
-INSERT INTO `pregunta` (`id_pregunta`, `asunto`, `cuerpo`) VALUES
-(1, 'Pregunta de prueba nº 1', '¿Esto es una prueba?'),
-(2, 'Pregunta de prueba nº 2', '¿Y esto es otra?'),
-(3, 'Quiero saber más. Es posible?', 'Si, si estudias mucho, mucho y mucho'),
-(4, '¿Nueva Pregunta con Plates', 'Esta es una pregunta con el motor de Plates'),
-(5, '¿Pregunta nº 6?', 'Esta es otra pregunta de ejemplo'),
-(6, 'Un asunto cualquiera', 'Ejemplo del uso de Sesiones');
-
--- --------------------------------------------------------
+CREATE TABLE IF NOT EXISTS entrada (
+  id_entrada int(10) NOT NULL AUTO_INCREMENT,
+  titulo varchar(250) COLLATE latin1_spanish_ci DEFAULT NULL, /* Por el momento es un varchar amplio */
+  cuerpo text COLLATE latin1_spanish_ci NOT NULL,
+  PRIMARY KEY (id_pregunta)
+) ENGINE = InnoDB  DEFAULT CHARSET = latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT = 7 ;
 
 --
--- Estructura de tabla para la tabla `song`
+-- Volcado de datos para la tabla 'pregunta'
 --
 
-CREATE TABLE IF NOT EXISTS `song` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `artist` text COLLATE utf8_unicode_ci NOT NULL,
-  `track` text COLLATE utf8_unicode_ci NOT NULL,
-  `link` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
+INSERT INTO entrada (id_entrada, titulo, cuerpo) VALUES
+(1, 'Hola mundo!', 'Este es el cuerpo de la primera entrada de prueba de esta aplicación. En este campo podemos escribir cualquier cosa...'),
+(2, '¿Conocéis a Marea?', 'Marea es un grupo de música rock (original de Berriozar, Navarra) formado en 1997 por Kutxi Romero. Es considerada una de las bandas dentro del panorama del rock urbano más exitosas.1 En su discografía se encuentran seis álbumes de estudio, dos recopilaciones y un álbum en directo. - Wikipedia.'),
+(3, 'El uso de los frameworks', 'Podemos usar frameworks para agilizar el proceso de creación de software y para su mantenimiento. ¿Creéis que el paradigma MVC es un tipo de framework?'),
+(4, 'Hablemos de Michael Jordan', 'Michael Jeffrey Jordan, (Brooklyn, Nueva York, Estados Unidos, 17 de febrero de 1963), más conocido como Michael Jordan, es un exjugador de baloncesto estadounidense. En la actualidad es propietario del equipo de la NBA los Charlotte Hornets.2 Está considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.3 Se retiró definitivamente en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1999, después de haber jugado 13 temporadas en los Chicago Bulls. - Wikipedia'),
+(5, '¿Qué opinan del calentamiento global?', 'Es un tema demasiado importante como para obviarlo...'),
+(6, 'Una entrada de ejemplo más', 'Soy Dani. Visítame en <a href="http://danmnez.me">Mi blog</a> para más publicaciones!');
+
+/* ---------------------------------------------------------- */
 
 --
--- Volcado de datos para la tabla `song`
+-- Estructura de tabla para la tabla 'respuesta'
 --
 
-INSERT INTO `song` (`id`, `artist`, `track`, `link`) VALUES
-(1, 'Dena', 'Cash, Diamond Ring, Swimming Pools', 'http://www.youtube.com/watch?v=r4CDc9yCAqE'),
-(2, 'Jessy Lanza', 'Kathy Lee', 'http://vimeo.com/73455369'),
-(3, 'The Orwells', 'In my Bed (live)', 'http://www.youtube.com/watch?v=8tA_2qCGnmE'),
-(4, 'L''Orange & Stik Figa', 'Smoke Rings', 'https://www.youtube.com/watch?v=Q5teohMyGEY'),
-(5, 'Labyrinth Ear', 'Navy Light', 'http://www.youtube.com/watch?v=a9qKkG7NDu0'),
-(6, 'Bon Hiver', 'Wolves (Kill them with Colour Remix)', 'http://www.youtube.com/watch?v=5GXAL5mzmyw'),
-(7, 'Detachments', 'Circles (Martyn Remix)', 'http://www.youtube.com/watch?v=UzS7Gvn7jJ0'),
-(8, 'Dillon & Dirk von Loetzow', 'Tip Tapping (Live at ZDF Aufnahmezustand)', 'https://www.youtube.com/watch?v=hbrOLsgu000'),
-(9, 'Dillon', 'Contact Us (Live at ZDF Aufnahmezustand)', 'https://www.youtube.com/watch?v=E6WqTL2Up3Y'),
-(10, 'Tricky', 'Hey Love (Promo Edit)', 'http://www.youtube.com/watch?v=OIsCGdW49OQ'),
-(11, 'Compuphonic', 'Sunset feat. Marques Toliver (DJ T. Remix)', 'http://www.youtube.com/watch?v=Ue5ZWSK9r00'),
-(12, 'Ludovico Einaudi', 'Divenire (live @ Royal Albert Hall London)', 'http://www.youtube.com/watch?v=X1DRDcGlSsE'),
-(13, 'Maxxi Soundsystem', 'Regrets we have no use for (Radio1 Rip)', 'https://soundcloud.com/maxxisoundsystem/maxxi-soundsystem-ft-name-one'),
-(14, 'Beirut', 'Nantes (Fredo & Thang Remix)', 'https://www.youtube.com/watch?v=ojV3oMAgGgU'),
-(15, 'Buku', 'All Deez', 'http://www.youtube.com/watch?v=R0bN9JRIqig'),
-(16, 'Pilocka Krach', 'Wild Pete', 'http://www.youtube.com/watch?v=4wChP_BEJ4s'),
-(17, 'Mount Kimbie', 'Here to stray (live at Pitchfork Music Festival Paris)', 'http://www.youtube.com/watch?v=jecgI-zEgIg'),
-(18, 'Kool Savas', 'King of Rap (2012) / Ein Wunder', 'http://www.youtube.com/watch?v=mTqc6UTG1eY&hd=1'),
-(19, 'Chaim feat. Meital De Razon', 'Love Rehab (Original Mix)', 'http://www.youtube.com/watch?v=MJT1BbNFiGs'),
-(20, 'Emika', 'Searching', 'http://www.youtube.com/watch?v=oscuSiHfbwo'),
-(21, 'Emika', 'Sing to me', 'http://www.youtube.com/watch?v=k9sDBZm8pgk'),
-(22, 'George Fitzgerald', 'Thinking of You', 'http://www.youtube.com/watch?v=-14B8l49iKA'),
-(23, 'Disclosure', 'You & Me (Flume Edit)', 'http://www.youtube.com/watch?v=OUkkaqSNduU'),
-(24, 'Crystal Castles', 'Doe Deer', 'http://www.youtube.com/watch?v=zop0sWrKJnQ'),
-(25, 'Tok Tok vs. Soffy O.', 'Missy Queens Gonna Die', 'http://www.youtube.com/watch?v=EN0Tnw5zy6w'),
-(26, 'Fink', 'Maker (Synapson Remix)', 'http://www.youtube.com/watch?v=Dyd-cUkj4Nk'),
-(27, 'Flight Facilities (ft. Christine Hoberg)', 'Clair De Lune', 'http://www.youtube.com/watch?v=Jcu1AHaTchM'),
-(28, 'Karmon', 'Turning Point (Original Mix)', 'https://www.youtube.com/watch?v=-tB-zyLSPEo'),
-(29, 'Shuttle Life', 'The Birds', 'http://www.youtube.com/watch?v=-I3m3cWDEtM'),
-(30, 'SantÃ©', 'Homegirl (Rampa Mix)', 'http://www.youtube.com/watch?v=fnhMNOWxLYw');
-
--- --------------------------------------------------------
+CREATE TABLE IF NOT EXISTS respuesta (
+  id_respuesta int(10) NOT NULL AUTO_INCREMENT,
+  id_pregunta int(10) NOT NULL,
+  id_usuario int(10) NOT NULL,
+  cuerpo text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (id_respuesta)
+) ENGINE = InnoDB  DEFAULT CHARSET = utf8 COLLATE = utf8_unicode_ci AUTO_INCREMENT = 11 ;
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Volcado de datos para la tabla 'respuesta'
 --
 
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(50) NOT NULL,
-  `pass` varchar(250) NOT NULL,
-  `nombre` varchar(200) NOT NULL,
-  `id_perfil` int(11) unsigned NOT NULL,
-  `marcador` bigint(20) NOT NULL,
-  `token_recordarme` varchar(250) NOT NULL,
-  PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+INSERT INTO respuesta (id_respuesta, id_pregunta, id_usuario, cuerpo) VALUES
+(1, 1, 1, 'Hola!, soy pepe. ¡Qué bien el inicio de este blog! :)'),
+(2, 1, 2, 'Si!!!, yo soy Isabel y también estoy muy contenta jiji'),
+(3, 2, 3, 'Joder, tío. Me encanta este grupo! Hace no mucho estuve en un concierto suyo. Viva MAREAAA'),
+(4, 3, 3, '¿Frameworks tío? Qué puñetas es eso...'),
+(5, 3, 1, 'Yo uso Debut como framework para mis proyectos en MVC. Opino que no hay que reinventar la rueda para trabajar y que un framework para tus proyectos es la mejor opción ;)'),
+(6, 4, 2, '*___* Jordan me vuelve loca jiji'),
+(7, 5, 3, 'Es verdad macho, hay que tener más conciencia con estos temas tío.'),
+(8, 5, 2, 'Ayayayay estamos perdiendo a muchas especies por nuestra culpa!! T__T'),
+(9, 6, 1, 'Gracias Dani, estaré atento a las nuevas publicaciones je'),
+(10, 6, 3, 'Si eso, gracias colega ;)');
+
+/* ---------------------------------------------------------- */
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Estructura de tabla para la tabla 'usuario'
 --
-#Contraseñas 1234
-INSERT INTO `usuario` (`id_usuario`, `login`, `pass`, `nombre`, `id_perfil`, `marcador`, `token_recordarme`) VALUES
+
+CREATE TABLE IF NOT EXISTS usuario (
+  id_usuario int(11) NOT NULL AUTO_INCREMENT,
+  login varchar(50) NOT NULL,
+  pass varchar(250) NOT NULL,
+  nombre varchar(200) NOT NULL,
+  id_perfil int(11) unsigned NOT NULL,
+  marcador bigint(20) NOT NULL,
+  token_recordarme varchar(250) NOT NULL,
+  PRIMARY KEY (id_usuario),
+  UNIQUE KEY login (login)
+) ENGINE = InnoDB  DEFAULT CHARSET = latin1 AUTO_INCREMENT = 4 ;
+
+--
+-- Volcado de datos para la tabla 'usuario' (contraseñas 1234)
+--
+INSERT INTO usuario (id_usuario, login, pass, nombre, id_perfil, marcador, token_recordarme) VALUES
 (1, 'pepe@prueba.iescierva.net', '81dc9bdb52d04dc20036dbd8313ed055', 'Pepe García', 1, 216781394851371, 'c4be99126436fa4661ce8130b124d115f1ce659b161099976b1dd9c8d6b1a805'),
 (2, 'isabel@prueba.iescierva.net', '81dc9bdb52d04dc20036dbd8313ed055', 'Isabel Sánchez', 1, 379901394849217, ''),
 (3, 'juan@prueba.iescierva.net', '81dc9bdb52d04dc20036dbd8313ed055', 'Juan Gómez', 2, 0, '');
