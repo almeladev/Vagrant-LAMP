@@ -23,18 +23,18 @@ USE dbdebut;
 -- Estructura de tabla para la tabla 'pregunta'
 --
 
-CREATE TABLE IF NOT EXISTS entrada (
-  id_entrada int(10) NOT NULL AUTO_INCREMENT,
-  titulo varchar(250) COLLATE latin1_spanish_ci DEFAULT NULL, /* Por el momento es un varchar amplio */
-  cuerpo text COLLATE latin1_spanish_ci NOT NULL,
-  PRIMARY KEY (id_pregunta)
-) ENGINE = InnoDB  DEFAULT CHARSET = latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT = 7 ;
+CREATE TABLE IF NOT EXISTS `entrada` (
+  `id_entrada` int(10) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(250) COLLATE latin1_spanish_ci DEFAULT NULL, /* Por el momento es un varchar amplio */
+  `cuerpo` text COLLATE latin1_spanish_ci NOT NULL,
+  PRIMARY KEY (`id_pregunta`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla 'pregunta'
 --
 
-INSERT INTO entrada (id_entrada, titulo, cuerpo) VALUES
+INSERT INTO `entrada` (`id_entrada`, `titulo`, `cuerpo`) VALUES
 (1, 'Hola mundo!', 'Este es el cuerpo de la primera entrada de prueba de esta aplicación. En este campo podemos escribir cualquier cosa...'),
 (2, '¿Conocéis a Marea?', 'Marea es un grupo de música rock (original de Berriozar, Navarra) formado en 1997 por Kutxi Romero. Es considerada una de las bandas dentro del panorama del rock urbano más exitosas.1 En su discografía se encuentran seis álbumes de estudio, dos recopilaciones y un álbum en directo. - Wikipedia.'),
 (3, 'El uso de los frameworks', 'Podemos usar frameworks para agilizar el proceso de creación de software y para su mantenimiento. ¿Creéis que el paradigma MVC es un tipo de framework?'),
@@ -48,19 +48,19 @@ INSERT INTO entrada (id_entrada, titulo, cuerpo) VALUES
 -- Estructura de tabla para la tabla 'respuesta'
 --
 
-CREATE TABLE IF NOT EXISTS respuesta (
-  id_respuesta int(10) NOT NULL AUTO_INCREMENT,
-  id_pregunta int(10) NOT NULL,
-  id_usuario int(10) NOT NULL,
-  cuerpo text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (id_respuesta)
-) ENGINE = InnoDB  DEFAULT CHARSET = utf8 COLLATE = utf8_unicode_ci AUTO_INCREMENT = 11 ;
+CREATE TABLE IF NOT EXISTS `respuesta` (
+  `id_respuesta` int(10) NOT NULL AUTO_INCREMENT,
+  `id_pregunta` int(10) NOT NULL,
+  `id_usuario` int(10) NOT NULL,
+  `cuerpo` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_respuesta`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla 'respuesta'
 --
 
-INSERT INTO respuesta (id_respuesta, id_pregunta, id_usuario, cuerpo) VALUES
+INSERT INTO `respuesta` (`id_respuesta`, `id_pregunta`, `id_usuario`, `cuerpo`) VALUES
 (1, 1, 1, 'Hola!, soy pepe. ¡Qué bien el inicio de este blog! :)'),
 (2, 1, 2, 'Si!!!, yo soy Isabel y también estoy muy contenta jiji'),
 (3, 2, 3, 'Joder, tío. Me encanta este grupo! Hace no mucho estuve en un concierto suyo. Viva MAREAAA'),
