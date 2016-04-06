@@ -7,7 +7,7 @@ $('.enlacecuantas').on("click", function(e) {
 
 });
 
-$('#formulariorespuesta').on("submit", function(e) {
+$('#formulariocomentario').on("submit", function(e) {
 
 	e.preventDefault();
 	var form = $(this);
@@ -19,7 +19,7 @@ $('#formulariorespuesta').on("submit", function(e) {
 
 });
 
-$('#formulariorespuestaJSON').on("submit", function(e) {
+$('#formulariocomentarioJSON').on("submit", function(e) {
 
 	e.preventDefault();
 	var form = $(this);
@@ -33,19 +33,19 @@ $('#formulariorespuestaJSON').on("submit", function(e) {
 		method: 'post'
 	})
 
-	.done(function(res) {
-		console.log(res);
-		if(res.exito){
+	.done(function(com) {
+		console.log(com);
+		if(com.exito){
 		form.toggle();
 		mensaje.addClass("exitof");
-		$("#cuantasresp").text("Respuestas: " + res.cuantas);
+		$("#numcomentarios").text("Comentarios: " + com.numComentarios);
 	}
 
-	mensaje.html(res.msg);
+	mensaje.html(com.msg);
 
 	})
 
-	.fail(function(res) {
+	.fail(function(com) {
 	     if ( console && console.log ) {
 	         console.log( "La solicitud a fallado.");
 	     }
