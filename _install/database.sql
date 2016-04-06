@@ -20,7 +20,7 @@ USE dbdebut;
 /* ---------------------------------------------------------- */
 
 --
--- Estructura de tabla para la tabla 'pregunta'
+-- Estructura de tabla para la tabla 'entrada'
 --
 
 CREATE TABLE IF NOT EXISTS entrada (
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS entrada (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci AUTO_INCREMENT=7 ;
 
 --
--- Volcado de datos para la tabla 'pregunta'
+-- Volcado de datos para la tabla 'entrada'
 --
 
 INSERT INTO entrada (id_entrada, titulo, cuerpo) VALUES
@@ -45,10 +45,10 @@ INSERT INTO entrada (id_entrada, titulo, cuerpo) VALUES
 /* ---------------------------------------------------------- */
 
 --
--- Estructura de tabla para la tabla 'respuesta'
+-- Estructura de tabla para la tabla 'comentario'
 --
 
-CREATE TABLE IF NOT EXISTS respuesta (
+CREATE TABLE IF NOT EXISTS comentario (
   id_respuesta int(10) NOT NULL AUTO_INCREMENT,
   id_pregunta int(10) NOT NULL,
   id_usuario int(10) NOT NULL,
@@ -57,10 +57,10 @@ CREATE TABLE IF NOT EXISTS respuesta (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
--- Volcado de datos para la tabla 'respuesta'
+-- Volcado de datos para la tabla 'comentario'
 --
 
-INSERT INTO respuesta (id_respuesta, id_pregunta, id_usuario, cuerpo) VALUES
+INSERT INTO comentario (id_respuesta, id_pregunta, id_usuario, cuerpo) VALUES
 (1, 1, 1, 'Hola!, soy pepe. ¡Qué bien el inicio de este blog! :)'),
 (2, 1, 2, 'Si!!!, yo soy Isabel y también estoy muy contenta jiji'),
 (3, 2, 3, 'Joder, tío. Me encanta este grupo! Hace no mucho estuve en un concierto suyo. Viva MAREAAA'),
