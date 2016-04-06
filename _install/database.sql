@@ -49,18 +49,18 @@ INSERT INTO entrada (id_entrada, titulo, cuerpo) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS comentario (
-  id_respuesta int(10) NOT NULL AUTO_INCREMENT,
-  id_pregunta int(10) NOT NULL,
+  id_comentario int(10) NOT NULL AUTO_INCREMENT,
+  id_entrada int(10) NOT NULL,
   id_usuario int(10) NOT NULL,
   cuerpo text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (id_respuesta)
+  PRIMARY KEY (id_comentario)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla 'comentario'
 --
 
-INSERT INTO comentario (id_respuesta, id_pregunta, id_usuario, cuerpo) VALUES
+INSERT INTO comentario (id_comentario, id_entrada, id_usuario, cuerpo) VALUES
 (1, 1, 1, 'Hola!, soy pepe. ¡Qué bien el inicio de este blog! :)'),
 (2, 1, 2, 'Si!!!, yo soy Isabel y también estoy muy contenta jiji'),
 (3, 2, 3, 'Joder, tío. Me encanta este grupo! Hace no mucho estuve en un concierto suyo. Viva MAREAAA'),
