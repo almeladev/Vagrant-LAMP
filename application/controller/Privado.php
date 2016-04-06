@@ -12,4 +12,5 @@ class Privado extends Controller
     {
         echo $this->view->render("privado/index");
     }
+
 }

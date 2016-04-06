@@ -11,9 +11,14 @@
                 <h3><?= $pregunta->asunto ?></h3>
                 <p><?= $pregunta->cuerpo ?></p>
                 <footer>
-                    <a href="/Preguntas/editar/<?= $pregunta->id_pregunta ?>">[ Editar ]</a>
+                    <a href="/preguntas/editar/<?= $pregunta->id_pregunta ?>">[ Editar ]</a>
+                    <a href="/preguntas/cuantasRespuestas/<?= $pregunta->id_pregunta ?>" class="enlacecuantas">[ Cuantas <span></span>]</a>
+                    <a href="/preguntas/enviarRespuesta/<?= $pregunta->id_pregunta ?>">[ Responder (Ajax) ]</a>
+                    <a href="/preguntas/enviarRespuestaJSON/<?= $pregunta->id_pregunta ?>">[ Responder (JSON) ]</a>
+                    <a href="/preguntas/mostrarRespuestas/<?= $pregunta->id_pregunta ?>">[ Ver Respuestas ]</a>
                 </footer>
             </article>
         <?php endforeach ?>
     <?php endif ?>
+
 </div>

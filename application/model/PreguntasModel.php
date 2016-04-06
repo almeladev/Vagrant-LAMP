@@ -96,4 +96,59 @@ class PreguntasModel
             return false;
         }
     }
+
+
+    public static function cuantasRespuestas($id) {
+        $conn = Database::getInstance()->getDatabase();
+        $id = (int) $id;
+        $sql = "SELECT count(*) as num from respuesta where id_pregunta = :id";
+        $query = $conn->prepare($sql);
+        $query->bindValue(":id", $id, PDO::PARAM_INT);
+        $query->execute();
+        $respuestas = $query->fetch();
+        return $respuestas->num;
+    }
+
+
+    public static function insertarRespuesta($id, $respuesta) {
+        $conn = Database::getInstance()->getDatabase();
+        $datos_preg = self::getId($id);
+
+        if(!$datos_preg){return false;}
+
+            if(empty($respuesta["respuesta"])){
+                Session::add('feedback_negative', "No he recibido la respuesta");
+                return false;
+            }
+
+        if(strlen($respuesta["respuesta"]) < 10){
+            Session::add('feedback_negative', "La respuesta es muy corta");
+            Session::add('feedback_negative', "Válidas a partir de 10 carac.");
+            return false; 
+        }
+
+        $ssql = "insert into respuesta (respuesta, id_pregunta, id_usuario) values (:res, :idpreg, :usuario)";
+        $query = $conn->prepare($ssql);
+        $parameters = array(':res' => $respuesta["respuesta"], ':idpreg' => $datos_preg->id_pregunta, ':usuario' => Session::get("user_id"));
+        $query->execute($parameters);
+        $count = $query->rowCount();
+
+        if ($count == 1) {return $conn->lastInsertId(); echo "hola";}
+
+        return false;
+    }
+
+
+    public static function mostrarRespuestas($id) {
+        $conn = Database::getInstance()->getDatabase();
+        $id = (int) $id;
+        $sql = "SELECT * from respuesta where id_pregunta = :id";
+        $query = $conn->prepare($sql);
+        $query->bindValue(":id", $id, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetchAll();
+    }
+
+
+
 }

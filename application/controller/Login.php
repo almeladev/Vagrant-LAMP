@@ -25,7 +25,7 @@ class Login extends Controller{
         } else {
 
             echo $this->view->render('login/index');
-
+            exit(); //recomendable
         }
 
     }

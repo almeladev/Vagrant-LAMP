@@ -4,12 +4,12 @@ class Preguntas extends Controller
     public function todas()
     {
         $preguntas = PreguntasModel::getAll();
-        echo $this->view->render('preguntas/todas',
-            array('preguntas' => $preguntas));
+        echo $this->view->render('preguntas/todas', array('preguntas' => $preguntas));
     }
 
     public function crear()
     {
+
         if (!$_POST){
             echo $this->view->render('preguntas/formularioPregunta');
         } else {
@@ -34,6 +34,9 @@ class Preguntas extends Controller
 
     public function editar($id = 0)
     {
+
+        Auth::checkAutentication(); // Comprobar autenticación.
+
         if (!$_POST){
             $pregunta = PreguntasModel::getId($id);
             if ($pregunta){
@@ -61,5 +64,53 @@ class Preguntas extends Controller
             }
         }
     }
+
+
+    public function cuantasRespuestas($id = 0) {
+        $cuantas = PreguntasModel::cuantasRespuestas($id);
+        echo $this->view->render('preguntas/cuantasRespuestas',
+        array('cuantas' => $cuantas));
+    }
+
+    public function enviarRespuesta($id = 0){
+
+        Auth::checkAutentication(); // Comprobar autenticación.
+
+        if(!$_POST) {
+            $pregunta = PreguntasModel::getId($id);
+            echo $this->view->render('preguntas/formularioRespuesta', array('pregunta' => $pregunta));
+        } else {
+            $res = PreguntasModel::insertarRespuesta($id, $_POST);
+            echo $this->view->render('preguntas/respuestaInsertada', array('respuesta' => $res));
+        }
+    }
+
+
+    public function enviarRespuestaJSON($id = 0) {
+
+        Auth::checkAutentication();
+        if(!$_POST){
+            $pregunta = PreguntasModel::getId($id);
+            $cuantas = PreguntasModel::cuantasRespuestas($id);
+            echo $this->view->render('preguntas/formularioRespuestaJSON', array(
+                'pregunta' => $pregunta,
+                'cuantas' => $cuantas
+            ));
+        } else {
+            $res = PreguntasModel::insertarRespuesta($id, $_POST);
+            $cuantas = PreguntasModel::cuantasRespuestas($id);
+            echo $this->view->render('preguntas/respuestaInsertadaJSON', array(
+                'respuesta' => $res,
+                'cuantas' => $cuantas
+            ));
+        }
+    }
+
+
+    public function mostrarRespuestas($id = 0) {
+        $respuestas = PreguntasModel::mostrarRespuestas($id);
+        echo $this->view->render('preguntas/mostrarRespuestas', array('respuestas' => $respuestas));
+    }
+
 
 }
