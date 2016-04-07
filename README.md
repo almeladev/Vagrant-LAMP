@@ -2,7 +2,7 @@
 
 <p>Mi entorno de desarrollo LAMP (Linux, Apache, MySQL, PHP) para Vagrant.</p> 
 
-<p>Se trata de una máquina vagrant basada en <a href="https://github.com/luiscavero92/myMini">myMini</a> de luiscavero92, que a su vez, está basada sobre el proyecto PHP en MVC <a href="https://github.com/panique/mini">Mini</a>. Se trata de un servidor web, con unos mínimos archivos ya configurados para comenzar a trabajar.</p>
+<p>Se trata de una máquina vagrant basada en <a href="https://github.com/luiscavero92/myMini">myMini</a> de luiscavero92, que a su vez, está basada sobre el proyecto PHP <a href="https://github.com/panique/mini">Mini</a>. Se trata de un servidor web, que incluye una plantilla llamada "Debut" la cual sigue el patrón MVC en PHP.</p>
 <h2>Requerimientos</h2>
 <ul>
   <li><a href="https://www.virtualbox.org">Virtualbox</a></li>
