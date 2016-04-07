@@ -8,7 +8,7 @@ class View
     {
         
         $this->templates = $e;
-        $this->templates->addData(['titulo' => 'Debut, un ejemplo de MVC']);
+        $this->templates->addData(['titulo' => 'Debut, blog didáctico en MVC']);
         $this->templates->registerFunction('borrar_msg_feedback', function(){
                 Session::set('feedback_negative', null);
                 Session::set('feedback_positive', null);

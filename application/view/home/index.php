@@ -1,8 +1,10 @@
 <?php $this->layout('layout') ?>
 
-<div class="container">
-    <?= $titulo ?><br>
-    Estoy en la Home de esta app
-
+	<h3><?= $titulo ?> Esta es la página de presentación.</h3>
+    <div class="jumbotron">
+  		<h1>Hello!</h1>
+  		<p>Bienvenido a Debut!, aprenda MVC de una forma un poco más rápida.</p>
+ 	    <p><a class="btn btn-primary btn-lg" href="<?php echo URL; ?>Entradas" role="button">Ver entradas</a></p>
 </div>
-<?php $this->insert('partials/banner', ['dato' => 'Dato del banner']) ?>
+
+<?php $this->insert('partials/footer') ?>

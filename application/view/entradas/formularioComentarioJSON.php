@@ -1,5 +1,5 @@
 <?php $this->layout('layout') ?>
-<div class="container">
+
 <?php if($entrada): ?>
 <article class="entrada">
 	<h3><?= $entrada->titulo ?></h3>
@@ -10,15 +10,13 @@
 <div class="mensajef"></div>
 
 <form action="<?= $_SERVER["REQUEST_URI"] ?>" method="post" id="formulariocomentarioJSON">
-	<p>
-		<label for="comentario">Comentario</label>
-		<span><textarea name="comentario"></textarea></span>
-	</p>
-	<p><input type="submit" value="Enviar"></p>
-
+	<div class="form-group">
+        <label>Comentario</label>
+        <textarea class="form-control textocomentario" name="comentario" placeholder="Exprese aquí su opinión"><?= (isset($datos['cuerpo'])) ? $datos['cuerpo'] : "" ?></textarea>
+    </div>
+    <input type="submit" class="btn btn-default" value="Enviar">
 </form>
 
 <?php else: ?>
 <p>entrada no encontrada</p>
 <?php endif ?>
-</div>

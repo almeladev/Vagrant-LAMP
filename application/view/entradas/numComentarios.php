@@ -1,5 +1,5 @@
 <?php if($numComentarios): ?>
-(<?= $numComentarios ?>)
+	<?= $numComentarios ?>
 <?php else: ?>
-Sin respuestas
+	No hay
 <?php endif ?>

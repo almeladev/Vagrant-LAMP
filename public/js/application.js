@@ -1,4 +1,4 @@
-$('.enlacecuantas').on("click", function(e) {
+$('.numcomentarios').on("click", function(e) {
 
 	e.preventDefault();
 	var enlace = $(this);
@@ -17,6 +17,7 @@ $('#formulariocomentario').on("submit", function(e) {
 		$('.mensajef').html(res);
 	});
 
+	form.toggle();
 });
 
 $('#formulariocomentarioJSON').on("submit", function(e) {
@@ -25,7 +26,7 @@ $('#formulariocomentarioJSON').on("submit", function(e) {
 	var form = $(this);
 	var url = form.attr("action");
 	var mensaje = $('.mensajef');
-	mensaje.removeClass("exitof");
+	mensaje.removeClass("alert alert-success");
 
 	$.ajax(url, {
 		data: form.serialize(),
@@ -37,7 +38,7 @@ $('#formulariocomentarioJSON').on("submit", function(e) {
 		console.log(com);
 		if(com.exito){
 		form.toggle();
-		mensaje.addClass("exitof");
+		mensaje.addClass("alert alert-success");
 		$("#numcomentarios").text("Comentarios: " + com.numComentarios);
 	}
 

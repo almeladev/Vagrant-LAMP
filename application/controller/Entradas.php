@@ -2,12 +2,14 @@
 class Entradas extends Controller
 {
 
-    public function todas() {
+    public function index() {
         $entradas = EntradasModel::getAll();
-        echo $this->view->render('entradas/todas', array('entradas' => $entradas));
+        echo $this->view->render('entradas/index', array('entradas' => $entradas));
     }
 
     public function crear() {
+
+         Auth::checkAutentication(); // Comprobar autenticación.
 
         if (!$_POST){
             echo $this->view->render('entradas/formularioEntrada');
@@ -44,7 +46,7 @@ class Entradas extends Controller
                         'accion' => 'editar',
                  ));
             } else {
-                header("location: /entradas/todas");
+                header("location: /entradas");
             }
         } else {
             $datos = array(
@@ -53,7 +55,7 @@ class Entradas extends Controller
                 'id_entrada' => (isset($_POST["id_entrada"])) ? $_POST["id_entrada"] : ""
             );
             if (entradasModel::edit($datos)){
-                header('location: /entradas/todas');
+                header('location: /entradas');
             } else {
                 echo $this->view->render('entradas/formularioentrada', array(
                     'errores' => array('Error al editar'),

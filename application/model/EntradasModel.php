@@ -16,11 +16,11 @@ class EntradasModel
         $errores_validacion = false;
 
         if(empty($datos['titulo'])){
-            Session::add('feedback_negative', "No he recibido el asunto de la pregunta");
+            Session::add('feedback_negative', "No se ha introducido el título de la entrada");
             $errores_validacion = true;
         }
         if(empty($datos['cuerpo'])){
-            Session::add('feedback_negative', "No he recibido el cuerpo de la pregunta");
+            Session::add('feedback_negative', "No se ha introducido el cuerpo de la entrada");
             $errores_validacion = true;
         }
         if($errores_validacion){
