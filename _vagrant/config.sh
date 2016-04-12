@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
-
 # ======================================================= #
 # config.sh
 #
 # Archivo de configuración automática para la box 
-# Ubuntu 14.04
+# Ubuntu 14.04 en Vagrant.
 #
-# Autor: Daniel Martínez
-# Author URI: http://danmnez.me
+# Autor: Daniel Martínez <danmnez.me>
 # Version: 0.7
 # Licencia: http://unlicense.org/
+# Creado: 12.04.2016
 # ======================================================= #
 
 # ======================================================= #
