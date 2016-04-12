@@ -1,58 +1,31 @@
 <?php
-
-/**
- * El controlador Entradas.
- *
- * PHP versión 7
- *
- * @category  Entradas
- * @author    Daniel Martínez <danmnez.me>
- * @license   https://opensource.org/licenses/MIT MIT Licence
- */
-
 class Entradas extends Controller
 {
 
-    /**
-     * Envía a la vista todas las entradas que existan.
-     *
-     * @return void
-     */
-    public function index()
-    {
-        $entradas = EntradasModel::todas();
+    public function index() {
+        $entradas = EntradasModel::getAll();
         echo $this->view->render('entradas/index', array('entradas' => $entradas));
     }
 
-    /**
-     * Muestra al modelo los datos de la nueva entrada y comprueba su insercción.
-     *
-     * @return void
-     */
-    public function crear()
-    {
+    public function crear() {
 
-        Auth::checkAutentication(); // Comprobar autenticación.
+         Auth::checkAutentication(); // Comprobar autenticación.
 
-        if (!$_POST) {
+        if (!$_POST){
             echo $this->view->render('entradas/formularioEntrada');
         } else {
-            if (!isset($_POST["titulo"])) {
+            if (!isset($_POST["titulo"]))
                 $_POST["asunto"] = "";
-            }
-            if (!isset($_POST["cuerpo"])) {
+            if (!isset($_POST["cuerpo"]))
                 $_POST["cuerpo"] = "";
-            }
-
             $datos = array(
                 'titulo' => $_POST["titulo"],
                 'cuerpo' => $_POST["cuerpo"]
             );
-
-            if (EntradasModel::insertarEntrada($datos)) {
+            if (EntradasModel::insert($datos)){
                 echo $this->view->render('entradas/entradaInsertada');
             } else {
-                echo $this->view->render('entradas/formularioEntrada', array(
+                echo $this->view->render('entradas/formularioEntrada',array(
                         'errores' => array('Error al insertar'),
                         'datos' => $_POST
                 ));
@@ -60,43 +33,14 @@ class Entradas extends Controller
         }
     }
 
-    /**
-     * Indica al modelo los datos de la entrada que se va a eliminar.
-     *
-     * @param  integer $id [id de la entrada]
-     * @return void
-     */
-    public function borrar($id = 0)
-    {
-        /**
-         * borrar también los comentarios asociados a las entradas ;) -PENDIENTE
-         */
-        Auth::checkAutentication(); // Comprobar autenticación.
-
-        $entrada = EntradasModel::getId($id);
-        if (isset($entrada)) {
-            EntradasModel::borrarEntrada($entrada->id_entrada);
-        } else {
-            echo "No se puede borrar la entrada, porque no existe.";
-        }
-
-    }
-
-    /**
-     * Indica al modelo los datos de la entrada que se va a editar. También
-     * comprueba si ha habido éxito.
-     *
-     * @param  integer $id [id de la entrada]
-     * @return void
-     */
     public function editar($id = 0)
     {
 
         Auth::checkAutentication(); // Comprobar autenticación.
 
-        if (!$_POST) {
+        if (!$_POST){
             $entrada = EntradasModel::getId($id);
-            if ($entrada) {
+            if ($entrada){
                 echo $this->view->render('entradas/formularioEntrada', array(
                         'datos' => get_object_vars($entrada),
                         'accion' => 'editar',
@@ -110,7 +54,7 @@ class Entradas extends Controller
                 'cuerpo' => (isset($_POST["cuerpo"])) ? $_POST["cuerpo"] : "",
                 'id_entrada' => (isset($_POST["id_entrada"])) ? $_POST["id_entrada"] : ""
             );
-            if (entradasModel::editarEntrada($datos)) {
+            if (entradasModel::edit($datos)){
                 header('location: /entradas');
             } else {
                 echo $this->view->render('entradas/formularioentrada', array(
@@ -121,4 +65,54 @@ class Entradas extends Controller
             }
         }
     }
-} // Fin Entradas.
+
+
+    public function numComentarios($id = 0) {
+        $numComentarios = entradasModel::numComentarios($id);
+        echo $this->view->render('entradas/numComentarios',
+        array('numComentarios' => $numComentarios));
+    }
+
+    public function enviarComentario($id = 0){
+
+        Auth::checkAutentication(); // Comprobar autenticación.
+
+        if(!$_POST) {
+            $entrada = entradasModel::getId($id);
+            echo $this->view->render('entradas/formularioComentario', array('entrada' => $entrada));
+        } else {
+            $comentario = entradasModel::insertarComentario($id, $_POST);
+            echo $this->view->render('entradas/comentarioInsertado', array('comentario' => $comentario));
+        }
+    }
+
+
+    public function enviarComentarioJSON($id = 0) {
+
+        Auth::checkAutentication();
+
+        if(!$_POST){
+            $entrada = entradasModel::getId($id);
+            $numComentarios = entradasModel::numComentarios($id);
+            echo $this->view->render('entradas/formularioComentarioJSON', array(
+                'entrada' => $entrada,
+                'numComentarios' => $numComentarios
+            ));
+        } else {
+            $comentario = entradasModel::insertarComentario($id, $_POST);
+            $numComentarios = entradasModel::numComentarios($id);
+            echo $this->view->render('entradas/comentarioInsertadoJSON', array(
+                'comentario' => $comentario,
+                'numComentarios' => $numComentarios
+            ));
+        }
+    }
+
+
+    public function mostrarComentarios($id = 0) {
+        $comentarios = entradasModel::mostrarComentarios($id);
+        echo $this->view->render('entradas/mostrarComentarios', array('comentarios' => $comentarios));
+    }
+
+
+}

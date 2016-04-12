@@ -1,50 +1,44 @@
 <?php
 
-/**
- * El modelo LoginModel.
- *
- * PHP versión 7
- *
- * @category  Login
- * @author    Daniel Martínez <danmnez.me>
- * @license   https://opensource.org/licenses/MIT MIT Licence
- */
-
 class LoginModel
 {
-    /**
-     * Comprueba los datos del login en la base de datos e inicia la sesión del usuario.ç
-     *
-     * @param  [array] $datos [Los datos del usuario]
-     * @return [booleano]     [false o true]
-     */
+
     public static function dologin($datos)
     {
-        if (!$datos) {
+        if(!$datos){
+
             Session::add('feedback_negative', 'No tengo los datos de Login');
             return false;
         }
-        if (empty($datos['clave'])) {
+        if(empty($datos['clave'])){
+
             Session::add('feedback_negative', 'No se ha indicado la clave');
+
         }
 
-        if (empty($datos['email'])) {
+        if(empty($datos['email'])){
+
             Session::add('feedback_negative', 'No se ha indicado el email');
+
         }
 
-        if (Session::get('feedback_negative')) {
+        if(Session::get('feedback_negative')){
+
             return false;
+
         }
 
         $datos['email'] = trim($datos['email']);
-        if (!filter_var($datos['email'], FILTER_VALIDATE_EMAIL)) {
+        if(!filter_var($datos['email'], FILTER_VALIDATE_EMAIL)){
             Session::add('feedback_negative', 'El Email no es válido');
         }
-        if (strlen($datos['clave']) < 4) {
+        if(strlen($datos['clave']) < 4){
             Session::add('feedback_negative', 'La clave debe tener 4 o más caracteres');
         }
-        if (Session::get('feedback_negative')) {
+        if(Session::get('feedback_negative')){
+
             return false;
+
         }
 
         $conn = Database::getInstance()->getDatabase();
@@ -54,13 +48,13 @@ class LoginModel
         $query->execute();
 
         $cuantos = $query->rowCount();
-        if ($cuantos != 1) {
+        if($cuantos != 1){
             Session::add('feedback_negative', 'No estás registrado');
             return false;
         }
 
         $usuario = $query->fetch();
-        if ($usuario->pass != md5($datos['clave'])) {
+        if($usuario->pass != md5($datos['clave'])){
             Session::add('feedback_negative', 'La clave no coincide');
             return false;
         }
@@ -73,4 +67,5 @@ class LoginModel
         return true;
 
     }
-} // Fin LoginModel.
+
+}

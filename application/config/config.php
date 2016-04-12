@@ -10,7 +10,6 @@
  * Informe de errores.
  * útil para mostrar los pequeños problemas durante el desarrollo.
  */
-
 define('ENVIRONMENT', 'development');
 
 if (ENVIRONMENT == 'development' || ENVIRONMENT == 'dev') {
@@ -21,8 +20,8 @@ if (ENVIRONMENT == 'development' || ENVIRONMENT == 'dev') {
 /**
  * Configuración de la URL.
  *
- * URL_PUBLIC_FOLDER:
- * Se trata de la carpeta pública, a la cual tienen acceso todo el mundo. No ocurre lo mismo con /application
+ * URL_PUBLIC_FOLDER: 
+ * Se trata de la carpeta pública, a la cual tienen acceso todo el mundo. No ocurre lo mismo con /application 
  *
  * URL_PROTOCOL:
  * El tipo de protocolo a usar.
