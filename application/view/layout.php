@@ -17,7 +17,7 @@
     <div class="container">
 
         <h1 class="logo"><a href="<?= URL_PROTOCOL . URL_DOMAIN; ?>">Debut</a></h1>
-        <?php $this->insert('partials/menu') ?>
+        <?php $this->insert('componentes/menu') ?>
 
         <?= $this->section('content') ?> 
 

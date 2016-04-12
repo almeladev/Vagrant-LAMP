@@ -1,6 +1,6 @@
 <?php $this->layout('layout') ?>
     <h2>Login de Usuarios</h2>
-    <?php $this->insert('partials/feedback') ?>
+    <?php $this->insert('componentes/feedback') ?>
 
     <form action="/Login/dologin" method="post">
       <div class="form-group">

@@ -1,6 +1,6 @@
 <?php $this->layout('layout') ?>
 
-    <?php $this->insert('partials/feedback') ?>
+    <?php $this->insert('componentes/feedback') ?>
     <h2>Todas las entradas <span class="badge"><?= count($entradas) ?></span></h2>
     <?php if(count($entradas) == 0): ?>
         <p>No se encuentran entradas en la Base de Datos</p>

@@ -7,7 +7,7 @@
         <p>Un blog vive de las publicaciones. No seas tímido y haz una entrada más ;)</p>
     <?php endif ?>
 
-    <?php $this->insert('partials/feedback') ?>
+    <?php $this->insert('componentes/feedback') ?>
     <form action="<?= $_SERVER['REQUEST_URI'] ?>" method="post">
         <?php if(isset($accion) && $accion == "editar"): ?>
             <input type="hidden" name="id_entrada" value="<?= $datos['id_entrada'] ?>">

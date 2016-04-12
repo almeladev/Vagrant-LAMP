@@ -11,7 +11,7 @@ if($comentario){
 
 	$com = array(
 		'exito' => false,
-		'msg' => $this->fetch('partials/feedback')
+		'msg' => $this->fetch('componentes/feedback')
 	);
 
 }

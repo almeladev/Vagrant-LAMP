@@ -1,31 +1,40 @@
 <?php
 
 /**
- * MINI - an extremely simple naked PHP application
- *
- * @package mini
- * @author Panique
- * @link http://www.php-mini.com
- * @link https://github.com/panique/mini/
+ * Debut MVC, basado en MINI - an extremely simple naked PHP application
+ * https://github.com/panique/mini/
+ * 
+ * @package Debut MVC
+ * @author  Daniel Martínez <danmnez.me>
+ * @link    https://github.com/DanMnez/Debut-MVC
  * @license http://opensource.org/licenses/MIT MIT License
  */
 
-// TODO get rid of this and work with namespaces + composer's autoloader
-
-// set a constant that holds the project's folder path, like "/var/www/".
-// DIRECTORY_SEPARATOR adds a slash to the end of the path
+/**
+ * Mantiene la ruta del proyecto en "/var/www/".
+ * "DIRECTORY_SEPARATOR" añade una barra al final de la dirección.
+ */
 define('ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR);
-// set a constant that holds the project's "application" folder, like "/var/www/application".
+
+/**
+ * Establece la carpeta del proyecto como "/var/www/application".
+ */
 define('APP', ROOT . 'application' . DIRECTORY_SEPARATOR);
 
-// This is the (totally optional) auto-loader for Composer-dependencies (to load tools into your project).
-// If you have no idea what this means: Don't worry, you don't need it, simply leave it like it is.
+/**
+ * Autoload de Composer. Se encarga de la autocarga de clases, evitando incluir "includes".
+ */
 if (file_exists(ROOT . 'vendor/autoload.php')) {
     require ROOT . 'vendor/autoload.php';
 }
 
-// load application config (error reporting etc.)
+/**
+ * Carga la configuración general de la aplicación.
+ */
 require APP . 'config/config.php';
 
-// start the application
+/**
+ * Inicia la aplicación.
+ * @var Application
+ */
 $app = new Application();

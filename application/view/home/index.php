@@ -7,4 +7,4 @@
  	    <p><a class="btn btn-primary btn-lg" href="<?php echo URL; ?>Entradas" role="button">Ver entradas</a></p>
 </div>
 
-<?php $this->insert('partials/footer') ?>
+<?php $this->insert('componentes/footer') ?>
