@@ -20,7 +20,7 @@ class EntradasModel
     public static function todas()
     {
         $conn = Database::getInstance()->getDatabase();
-        $ssql = "SELECT * FROM entrada";
+        $ssql = "SELECT * FROM entrada ORDER BY id_entrada desc";
         $query = $conn->prepare($ssql);
         $query->execute();
         return $query->fetchAll();

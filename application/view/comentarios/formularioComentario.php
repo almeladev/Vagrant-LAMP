@@ -4,6 +4,7 @@
 <article class="entrada">
 	<h3><?= $entrada->titulo ?></h3>
 	<p><?= $entrada->cuerpo ?></p>
+	<p id="numcomentarios">Comentarios: <span id="numcomentarios"><?= $numComentarios ?></span></p>
 </article>
 
 <div class="mensajef"></div>
@@ -15,6 +16,7 @@
     </div>
     <input type="submit" class="btn btn-default" value="Enviar">
 </form>
+
 <?php else: ?>
-<p>Entrada no encontrada</p>
+<p>entrada no encontrada</p>
 <?php endif ?>

@@ -1,26 +1,4 @@
-$('.numcomentarios').on("click", function(e) {
-
-	e.preventDefault();
-	var enlace = $(this);
-	var url = enlace.attr("href");
-	enlace.children("span").load(url);
-
-});
-
 $('#formulariocomentario').on("submit", function(e) {
-
-	e.preventDefault();
-	var form = $(this);
-	var url = form.attr("action");
-
-	$.post(url, form.serialize(), function(res) {
-		$('.mensajef').html(res);
-	});
-
-	form.toggle();
-});
-
-$('#formulariocomentarioJSON').on("submit", function(e) {
 
 	e.preventDefault();
 	var form = $(this);
@@ -53,3 +31,7 @@ $('#formulariocomentarioJSON').on("submit", function(e) {
 	});
 
 });
+
+function confirmacion() {
+     if(!confirm("¿Estás seguro/a?")) return false; 
+}

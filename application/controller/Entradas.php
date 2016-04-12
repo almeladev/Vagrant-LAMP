@@ -76,6 +76,7 @@ class Entradas extends Controller
         $entrada = EntradasModel::getId($id);
         if (isset($entrada)) {
             EntradasModel::borrarEntrada($entrada->id_entrada);
+            header('location: /Entradas');
         } else {
             echo "No se puede borrar la entrada, porque no existe.";
         }

@@ -14,7 +14,7 @@ class Comentarios extends Controller
 {
 
     /**
-     * Envía a la vista el número de comentarios de la entrada.
+     * Envía a la vista el número de comentarios de la entrada. [INHABILITADO]
      *
      * @param  integer $id [id de la entrada]
      * @return void
@@ -32,7 +32,7 @@ class Comentarios extends Controller
 
     /**
      * Muestra al modelo el comentario a insertar en la BBDD y
-     * el formulario de comentarios a la vista.
+     * el formulario de comentarios a la vista por formato JSON.
      *
      * @param  integer $id [id de la entrada]
      * @return void
@@ -40,40 +40,19 @@ class Comentarios extends Controller
     public function enviarComentario($id = 0)
     {
 
-        Auth::checkAutentication(); // Comprobar autenticación.
-
-        if (!$_POST) {
-            $entrada = EntradasModel::getId($id);
-            echo $this->view->render('comentarios/formularioComentario', array('entrada' => $entrada));
-        } else {
-            $comentario = ComentariosModel::insertarComentario($id, $_POST);
-            echo $this->view->render('comentarios/comentarioInsertado', array('comentario' => $comentario));
-        }
-    }
-
-    /**
-     * Muestra al modelo el comentario a insertar en la BBDD y
-     * el formulario de comentarios a la vista por formato JSON.
-     *
-     * @param  integer $id [id de la entrada]
-     * @return void
-     */
-    public function enviarComentarioJSON($id = 0)
-    {
-
         Auth::checkAutentication();
 
         if (!$_POST) {
             $entrada = EntradasModel::getId($id);
             $numComentarios = ComentariosModel::numComentarios($id);
-            echo $this->view->render('comentarios/formularioComentarioJSON', array(
+            echo $this->view->render('comentarios/formularioComentario', array(
                 'entrada' => $entrada,
                 'numComentarios' => $numComentarios
             ));
         } else {
             $comentario = ComentariosModel::insertarComentario($id, $_POST);
             $numComentarios = ComentariosModel::numComentarios($id);
-            echo $this->view->render('comentarios/comentarioInsertadoJSON', array(
+            echo $this->view->render('comentarios/comentarioInsertado', array(
                 'comentario' => $comentario,
                 'numComentarios' => $numComentarios
             ));
