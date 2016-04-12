@@ -1,25 +1,30 @@
 <?php
 
 /**
- * Class Home
+ * El controlador Home.
  *
- * Please note:
- * Don't use the same name for class and method, as this might trigger an (unintended) __construct of the class.
- * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
+ * PHP versión 7
  *
+ * @author    Daniel Martínez <danmnez.me>
+ * @license   https://opensource.org/licenses/MIT MIT Licence
  */
+
 class Home extends Controller
 {
+
     /**
-     * PAGE: index
-     * This method handles what happens when you move to http://yourproject/home/index (which is the default page btw)
+     * Página principal.
+     * Se encarga de mostrar la información asociada a la dirección ://tuproyecto/Home (por defecto).
+     *
+     * @return void
      */
     public function index()
     {
 
         echo $this->view->render("home/index", [
-            'titulo' => 'Estás en el HOME.'
+            'titulo' => 'Estás en el HOME.',
+            'descripcion' => 'Y esta es una descripción.'
         ]);
 
     }
-}
+} // Fin Home.

@@ -58,15 +58,15 @@ class Application
                 }
                 else {
                     header('HTTP/1.0 404 Not Found');
-                    require APP . 'controller/Fallo.php';
-                    $cont_error = $dice->create("Fallo");
+                    require APP . 'controller/Errores.php';
+                    $cont_error = $dice->create("Errores");
                     $cont_error->index();
                 }
             }
         } else {
             header('HTTP/1.0 404 Not Found');
-            require APP . 'controller/Fallo.php';
-            $cont_error = $dice->create("Fallo");
+            require APP . 'controller/Errores.php';
+            $cont_error = $dice->create("Errores");
             $cont_error->index();
         }
     }

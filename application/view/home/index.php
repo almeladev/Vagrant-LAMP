@@ -1,6 +1,6 @@
 <?php $this->layout('layout') ?>
 
-	<h3><?= $titulo ?> Esta es la página de presentación.</h3>
+	<h3><?= $titulo ?> Esta es la página de presentación. <?= $descripcion ?></h3>
     <div class="jumbotron">
   		<h1>Hello!</h1>
   		<p>Bienvenido a Debut!, aprenda MVC de una forma un poco más rápida.</p>
