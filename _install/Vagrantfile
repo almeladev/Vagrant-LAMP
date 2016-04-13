@@ -9,7 +9,7 @@ Vagrant.configure(VERSION) do |config|
 
   # Configuración mínima del sistema. (https://www.vagrantup.com/docs/virtualbox/configuration.html)
   config.vm.provider "virtualbox" do |v|
-  	v.name = "Ubuntu.Server"
+  	v.name = "Ubuntu.Vagrant-LAMP"
     v.memory = 1024
     v.cpus = 1
   end
@@ -19,7 +19,7 @@ Vagrant.configure(VERSION) do |config|
   # Redireccionamiento de puertos.
   config.vm.network "forwarded_port", guest: 80, host: 8080
   # IP privada.
-  config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.network "private_network", ip: "192.168.56.101"
   # Carpeta compartida.
   config.vm.synced_folder "./", "/var/www/html"
   # Archivo para la instalación y configuración del entorno de desarrollo.
