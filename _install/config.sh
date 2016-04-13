@@ -1,25 +1,21 @@
 #!/usr/bin/env bash
-
 # ======================================================= #
-# config.sh
+# config.sh - Configuración para Vagrant LAMP
 #
 # Archivo de configuración automática para la box 
-# Ubuntu 14.04
+# Ubuntu 14.04 en Vagrant.
 #
-# Autor: Daniel Martínez
-# Author URI: http://danmnez.me
+# Autor: Daniel Martínez <danmnez.me>
 # Version: 0.7
 # Licencia: http://unlicense.org/
+# Creado: 12.04.2016
 # ======================================================= #
 
 # ======================================================= #
 # Variables y funciones globales
 # ======================================================= #
 
-DATABASE_SQL='database.sql' # Base de datos.
-PASSWORD='123' # Contraseña de la base de datos.
-PROJECTFOLDER='proyecto' # Nombre del directorio del proyecto.
-GIT_REPOS='https://github.com/DanMnez/Vagrant-LAMP' # Repositorios del proyecto en GitHub.
+PROJECTFOLDER='www' # Nombre del directorio para los proyectos.
 
 update() {
 	sudo apt-get update
@@ -30,7 +26,6 @@ update() {
 # ======================================================= #
 update
 sudo apt-get upgrade -y
-sudo apt-get install zip unzip -y
 
 # ======================================================= #
 # Instalación de apache2
@@ -62,7 +57,7 @@ debconf-set-selections <<< "mysql-community-server mysql-community-server/re-roo
 sudo apt-get install mysql-server -y
 
 # ======================================================= #
-# Creación del directorio del proyecto 
+# Creación del directorio para los proyectos
 # ======================================================= #
 sudo mkdir "/var/www/html/${PROJECTFOLDER}"
 
@@ -71,8 +66,8 @@ sudo mkdir "/var/www/html/${PROJECTFOLDER}"
 # ======================================================= #
 VHOST=$(cat <<EOF
 <VirtualHost *:80>
-    DocumentRoot "/var/www/html/${PROJECTFOLDER}/public"
-    <Directory "/var/www/html/${PROJECTFOLDER}/public">
+    DocumentRoot "/var/www/html/${PROJECTFOLDER}"
+    <Directory "/var/www/html/${PROJECTFOLDER}">
         AllowOverride All
         Require all granted
     </Directory>
@@ -89,45 +84,11 @@ sudo a2enmod rewrite
 service apache2 restart
 
 # ======================================================= #
-# Elimina el index.html por defecto de apache
+# mueve el index.html por defecto de apache
 # ======================================================= #
-sudo rm "/var/www/html/index.html"
+sudo mv "/var/www/html/index.html" "/var/www/html/${PROJECTFOLDER}"
 
 # ======================================================= #
-# Instala Git
+# Mensaje de fin
 # ======================================================= #
-sudo apt-get install -y git
-
-# ======================================================= #
-# Clona el repositorio de GitHub
-# ======================================================= #
-sudo git clone "${GIT_REPOS}" "/var/www/html/${PROJECTFOLDER}"
-
-# ======================================================= #
-# Descarga el administrador de MySQL Adminer
-# ======================================================= #
-sudo mkdir "/var/www/html/${PROJECTFOLDER}/public/adminer"
-sudo wget "http://www.adminer.org/latest.php" -O "/var/www/html/${PROJECTFOLDER}/public/adminer/index.php" 
-
-# ======================================================= #
-# Instalación de Composer
-# ======================================================= #
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar /usr/local/bin/composer
-
-# ======================================================= #
-# Instalación de los paquetes incluidos en composer
-# ======================================================= #
-cd "/var/www/html/${PROJECTFOLDER}"
-composer install
-
-# ======================================================= #
-# Carga la base de datos
-# ======================================================= #
-sudo mysql -h "localhost" -u "root" "-p${PASSWORD}" < "/var/www/html/${PROJECTFOLDER}/_install/${DATABASE_SQL}"
-
-# ======================================================= #
-# Copia la contraseña de la base de datos en el archivo 
-# de configuración -> define('DB_PASS', 'your_password');
-# ======================================================= #
-sudo sed -i "s/your_password/${PASSWORD}/" "/var/www/html/${PROJECTFOLDER}/application/config/config.php"
+echo -e "\nVagrant LAMP ha sido instalado. Enjoy!"
