@@ -16,6 +16,7 @@
 # ======================================================= #
 
 PROJECTFOLDER='www' # Nombre del directorio para los proyectos.
+PASSWORD='123' # Contraseña de MySQL.
 
 update() {
 	sudo apt-get update
