@@ -27,4 +27,4 @@
 
 <h2>Configuración y uso</h2>
 <p>La IP es <code>192.168.56.101</code> y el directorio de trabajo es <code>www</code></p>
-<p>La configuración es susceptible de cambio en los ficheros "vagrantfile" y "config.sh". También aclarar que las carpetas que comienzan por "_" pueden ser borradas una vez haya sido instalada la aplicación. Enjoy!</p>
+<p>La configuración es susceptible de cambio en los ficheros "vagrantfile" y "config.sh". Enjoy!</p>
