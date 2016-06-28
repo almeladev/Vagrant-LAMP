@@ -27,4 +27,8 @@
 
 <h2>Configuración y uso</h2>
 <p>La IP es <code>192.168.56.101</code> y el directorio de trabajo es <code>www</code></p>
+<ul>
+  <li>Usuario de MySQL: <code>root</code></li>
+  <li>Contraseña de MySQL: <code>123</code></li>
+</ul>
 <p>La configuración es susceptible de cambio en los ficheros "vagrantfile" y "config.sh". Enjoy!</p>
