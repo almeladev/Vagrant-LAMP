@@ -10,7 +10,7 @@
 
 <h2>Instalación</h2>
 <ol>
-  <li>Descargar los archivos del directorio "_vagrant" a la carpeta de trabajo.</li>
+  <li>Descargar los archivos del directorio "_install" a la carpeta de trabajo.</li>
   <li>Nos situamos con el intérprete de comandos en la carpeta.</li>
   <li>Escribimos  <code>vagrant up</code></li>
 </ol>
