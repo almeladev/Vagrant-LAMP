@@ -14,7 +14,6 @@
 # ======================================================= #
 # Variables y funciones globales
 # ======================================================= #
-
 PROJECTFOLDER='www' # Nombre del directorio para los proyectos.
 PASSWORD='123' # Contraseña de MySQL.
 
@@ -60,15 +59,15 @@ sudo apt-get install mysql-server -y
 # ======================================================= #
 # Creación del directorio para los proyectos
 # ======================================================= #
-sudo mkdir "/var/www/html/${PROJECTFOLDER}"
+sudo mkdir "/var/www/html"
 
 # ======================================================= #
 # Creación del virtualhost
 # ======================================================= #
 VHOST=$(cat <<EOF
 <VirtualHost *:80>
-    DocumentRoot "/var/www/html/${PROJECTFOLDER}"
-    <Directory "/var/www/html/${PROJECTFOLDER}">
+    DocumentRoot "/var/www/html"
+    <Directory "/var/www/html">
         AllowOverride All
         Require all granted
     </Directory>
@@ -87,7 +86,7 @@ service apache2 restart
 # ======================================================= #
 # mueve el index.html por defecto de apache
 # ======================================================= #
-sudo mv "/var/www/html/index.html" "/var/www/html/${PROJECTFOLDER}"
+sudo mv "/var/www/html/index.html" "/var/www/html"
 
 # ======================================================= #
 # Mensaje de fin
